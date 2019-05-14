@@ -14,7 +14,7 @@ export class SignupService {
   signup(user: User) {
     const url = "http://localhost:8080/createuser"
 
-    const ourheaders = new HttpHeaders()
+    let ourheaders = new HttpHeaders()
     ourheaders.append('Content-Type', 'application/json');
     
     this.http.post(url, JSON.stringify(user), {headers: ourheaders})

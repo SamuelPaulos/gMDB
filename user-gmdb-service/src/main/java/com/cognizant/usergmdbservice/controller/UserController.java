@@ -1,9 +1,12 @@
 package com.cognizant.usergmdbservice.controller;
 
 import com.cognizant.usergmdbservice.domain.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 public class UserController {
 
     @GetMapping(value = "/")
@@ -12,8 +15,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/createuser")
-    public String createUser(@RequestBody User user){
+    public ResponseEntity<User> createUser(@RequestBody User user){
         System.out.println(user);
-        return "thank you!";
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 }
