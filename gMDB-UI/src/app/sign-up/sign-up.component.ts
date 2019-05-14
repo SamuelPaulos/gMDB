@@ -24,6 +24,7 @@ export class SignUpComponent implements OnInit {
 
   signup(){
     const user = new User();
+    user.id = null;
     user.firstname = this.signupform.value.firstname;
     user.lastname = this.signupform.value.lastname;
     user.email = this.signupform.value.email;

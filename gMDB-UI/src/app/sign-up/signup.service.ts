@@ -13,13 +13,20 @@ export class SignupService {
 
   signup(user: User) {
     const url = "http://localhost:8080/createuser"
-
-    const ourheaders = new HttpHeaders()
+    let ourheaders = new HttpHeaders()
     ourheaders.append('Content-Type', 'application/json');
     
-    this.http.post(url, JSON.stringify(user), {headers: ourheaders})
+    this.http.post(url, user, {headers: ourheaders})
     .subscribe(data => {
       console.log(data);
     })
+    // this.http.post(url, JSON.stringify(user), {headers: ourheaders})
+    // .subscribe(data => {
+    //   console.log(data);
+    // })
+
+    // this.http.get(url).subscribe(data => {
+    //   console.log(data);
+    // })
   }
 }
